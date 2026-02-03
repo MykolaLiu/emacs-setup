@@ -1,10 +1,10 @@
 ;; company-c-headers
-(use-package company-c-headers
-  :init
-  (add-to-list 'company-backends 'company-c-headers))
+;;(req-package company-c-headers
+;;  :init
+;;(add-to-list 'company-backends 'company-c-headers))
 
 ;; hs-minor-mode for folding source code
-(add-hook 'c-mode-common-hook 'hs-minor-mode)
+;;(add-hook 'c-mode-common-hook 'hs-minor-mode)
 
 ;; Available C style:
 ;; “gnu”: The default style for GNU projects
@@ -18,13 +18,14 @@
 ;; “java”: The default style for java-mode (see below)
 ;; “user”: When you want to define your own style
 (setq c-default-style "linux") ;; set style to "linux"
+(setq tab-width 4)
+(setq-default indent-tabs-mode t)
 
-(use-package cc-mode
-  :init
-  (define-key c-mode-map (kbd "<C-tab>") 'company-complete)
-  (define-key c++-mode-map (kbd "<C-tab>") 'company-complete)
-  (setq tab-width 4)
-  (setq-default indent-tabs-mode t)
-  (defvaralias 'c-basic-offset 'tab-width))
+(require 'eglot)
+(add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd-20"))
+(add-hook 'c-mode-hook 'eglot-ensure)
+(add-hook 'c++-mode-hook 'eglot-ensure)
+
+;;  (define-key c++-mode-map (kbd "<C-tab>") 'company-complete)
 
 (provide 'setup-c)

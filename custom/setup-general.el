@@ -33,23 +33,23 @@
  )
 
 ;; company
-(use-package company
-  :init
-  (global-company-mode 1)
-  (delete 'company-semantic company-backends))
+;;(req-package company
+;;  :init
+;;  (global-company-mode 1)
+;;  (delete 'company-semantic company-backends))
 ;; (define-key c-mode-map  [(control tab)] 'company-complete)
 ;; (define-key c++-mode-map  [(control tab)] 'company-complete)
 
 ;; Package: projejctile
-(use-package projectile
-  :init
-  (projectile-global-mode)
-  (setq projectile-enable-caching t))
+;;(req-package projectile
+;;  :init
+;;  (projectile-global-mode)
+;;  (setq projectile-enable-caching t))
 
 ;; Package zygospore
-(use-package zygospore
-  :bind (("C-x 1" . zygospore-toggle-delete-other-windows)
-         ("RET" .   newline-and-indent)))
+;;(req-package zygospore
+;;  :bind (("C-x 1" . zygospore-toggle-delete-other-windows)
+;;         ("RET" .   newline-and-indent)))
 
   ; automatically indent when press RET
 
