@@ -1,5 +1,3 @@
-(menu-bar-mode t)
-(tool-bar-mode -1)
 
 ;; enable linum mode by default
 (display-line-numbers-mode t)
@@ -29,5 +27,11 @@
 (powerline-default-theme)
 (setq powerline-arrow-shape 'curve)
 
+(unless (package-installed-p 'vundo)
+  (package-install 'vundo))
+
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(global-display-line-numbers-mode 1)
 
 (provide 'setup-appearance)

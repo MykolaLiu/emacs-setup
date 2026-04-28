@@ -32,6 +32,11 @@
  gdb-show-main t
  )
 
+(unless (package-installed-p 'vundo)
+  (package-install 'vundo))
+(global-set-key (kbd "C-x u") 'vundo)
+(global-set-key (kbd "C-x C-u") 'undo)
+
 ;; company
 ;;(req-package company
 ;;  :init
